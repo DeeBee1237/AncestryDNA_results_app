@@ -29,9 +29,30 @@
 		7CC1D4A12F4D8233004F8FDB /* AncestryDNAViewPreviousResultsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AncestryDNAViewPreviousResultsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7CC1D4BE2F4D84A8004F8FDB /* Exceptions for "AncestryDNAViewPreviousResults" folder in "AncestryDNAViewPreviousResultsTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AncestryModel.swift,
+			);
+			target = 7CC1D4962F4D8233004F8FDB /* AncestryDNAViewPreviousResultsTests */;
+		};
+		7CC1D4BF2F4D84A8004F8FDB /* Exceptions for "AncestryDNAViewPreviousResults" folder in "AncestryDNAViewPreviousResultsUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AncestryModel.swift,
+			);
+			target = 7CC1D4A02F4D8233004F8FDB /* AncestryDNAViewPreviousResultsUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7CC1D48C2F4D8231004F8FDB /* AncestryDNAViewPreviousResults */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7CC1D4BE2F4D84A8004F8FDB /* Exceptions for "AncestryDNAViewPreviousResults" folder in "AncestryDNAViewPreviousResultsTests" target */,
+				7CC1D4BF2F4D84A8004F8FDB /* Exceptions for "AncestryDNAViewPreviousResults" folder in "AncestryDNAViewPreviousResultsUITests" target */,
+			);
 			path = AncestryDNAViewPreviousResults;
 			sourceTree = "<group>";
 		};
