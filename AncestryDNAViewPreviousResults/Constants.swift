@@ -10,6 +10,7 @@ class Constants {
     
     public static let testID : String = ""
     
+    // TODO: read this from a file that is in GIT ignore or else take it in from the client on the front end
     // TODO: this should come from the user, or else I will see if I can use the Ancestry API to
     // actually authenticate and not have to copy cookies
     public static let ancestryCookie : String = ""
