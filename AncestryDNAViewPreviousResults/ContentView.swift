@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    private let model = AncestryModel()
+    @StateObject private var model = AncestryModel()
     
     @State var allYearsLabel: String? = nil
     
@@ -27,23 +27,26 @@ struct ContentView: View {
                 VStack {
                     Picker("Select a year", selection: $selectedYear) {
                         ForEach(allYears!, id: \.self) {
-                            Text($0.description)
+                            Text($0.description).task {
+                                await model.getResultsForYear(year: selectedYear)
+                            }
                         }
                     }
                     .pickerStyle(.menu)
                     
-                    if (selectedYear != 0) {
-                        Text("Selected year: \(selectedYear.description)")
-
-                    }
+                        ForEach(model.resultsForYear, id: \.key) { region  in
+                            VStack {
+                                Text(region.key)
+                                Text("\(region.percentage)")
+                            }
+                        }
                 }
+                
             }
-                        
         }
         .padding()
         .task {
             allYears = await model.getAllDNATestYears()
-            
         }
     }
 }
