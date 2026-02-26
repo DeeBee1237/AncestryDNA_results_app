@@ -36,9 +36,9 @@ struct ContentView: View {
                     
                         ForEach(model.resultsForYear, id: \.key) { region  in
                             VStack {
-                                Text(region.key)
-                                Text("\(region.percentage)")
-                            }
+                                Text(region.regionName)
+                                Text(region.percentageDisplay)
+                            }.padding(20)
                         }
                 }
                 
