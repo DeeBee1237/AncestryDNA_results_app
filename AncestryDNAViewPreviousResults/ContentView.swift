@@ -37,7 +37,10 @@ struct ContentView: View {
                         ForEach(model.resultsForYear, id: \.key) { region  in
                             VStack {
                                 Text(region.regionName)
+                                    .foregroundStyle(region.darkColor ?? .black)
                                 Text(region.percentageDisplay)
+                                    .foregroundStyle(region.lightColor ?? .black)
+
                             }.padding(20)
                         }
                 }

@@ -8,6 +8,7 @@
 import Foundation
 // https://stackoverflow.com/questions/79779756/xcode-26-0-1-type-datacontroller-does-not-conform-to-protocol-observableobjec
 import Combine
+import SwiftUI
 
 struct EthnicityResultsResponse: Decodable {
     var regions: [Region]
@@ -18,12 +19,16 @@ struct Region: Decodable {
     var percentage: Int
     var lowerConfidence: Int
     var upperConfidence: Int
+    var lightColor: String
+    var darkColor: String
 }
 
 struct RegionResultsDisplayObject: Hashable {
     let key: String
     let regionName: String
     let percentageDisplay: String
+    let lightColor: Color?
+    let darkColor: Color?
 }
 
 class AncestryModel : ObservableObject {
@@ -84,7 +89,7 @@ class AncestryModel : ObservableObject {
             
             for yearResult in allYears.regions {
                 if let name = await getEthnicityNameForKey(key: yearResult.key, year: year) {
-                    displayObjects.append(RegionResultsDisplayObject(key: yearResult.key, regionName: name, percentageDisplay: "\(yearResult.percentage)% ( \(yearResult.lowerConfidence)% - \(yearResult.upperConfidence)%)"))
+                    displayObjects.append(RegionResultsDisplayObject(key: yearResult.key, regionName: name, percentageDisplay: "\(yearResult.percentage)% ( \(yearResult.lowerConfidence)% - \(yearResult.upperConfidence)%)", lightColor: Color(hex: yearResult.lightColor), darkColor: Color(hex: yearResult.darkColor)))
                 }
             }
             //
